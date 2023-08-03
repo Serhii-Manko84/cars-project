@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color:rgb(29, 16, 1);
+    color: aliceblue;
+    padding: 0 10px;
+    font-family: 'REM', sans-serif;
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    padding-top: 20px;
+}
+
+.btn {
+    display: block;
+    padding: 6px 40px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: rgb(245, 139, 1);
+}

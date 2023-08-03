@@ -1,13 +1,8 @@
-import viteLogo from "/vite.svg";
+import React from "react";
+import Home from "./components/screens/Home/Home";
 
 function App() {
-  return (
-    <>
-      <div>
-        <h1>Cars Project</h1>
-      </div>
-    </>
-  );
+  return <Home />;
 }
 
 export default App;
