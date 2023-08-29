@@ -1,23 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../../provaiders/AuthProvaider";
 
-import CarItem from "../CarItem/CarItem";
+import CatalogCar from "../../CatalogCar/CatalogCar";
+import CreateCardForm from "../CreateCardForm/CreateCardForm";
 
 import { cars as carsData } from "../CarItem/cars.data";
-import CreateCardForm from "../CreateCardForm/CreateCardForm";
 
 function Home() {
   const [cars, setCars] = useState(carsData);
-  console.log(cars);
+  const { user, setUser } = useContext(AuthContext);
 
   return (
     <div>
       <h1>Cars Projects</h1>
-      <CreateCardForm setCars={setCars} />
-      {cars.length ? (
-        cars.map((car) => <CarItem key={car.id} car={car} />)
+      {user ? (
+        <>
+          <h2 className="Name ">
+            Welcome {user.name}!
+            <button className="btn" onClick={() => setUser(null)}>
+              {" "}
+              Logout
+            </button>
+          </h2>
+        </>
       ) : (
-        <p> There are no cars</p>
+        <button className="btn" onClick={() => setUser({ name: "Sergii" })}>
+          Login
+        </button>
       )}
+      <CreateCardForm setCars={setCars} />
+      <CatalogCar cars={cars} />
     </div>
   );
 }
